@@ -1,0 +1,5 @@
+ color1		#91E5B7;
+ color2		#A1FFCC;
+ color3		#79BF99;
+ color4		#507F66;
+ color5		#284033;

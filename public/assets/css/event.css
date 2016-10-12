@@ -1,0 +1,323 @@
+.header1 {
+	background-color: rgba(80,127,102, .8); 
+	height: 96vh;
+	width: 100%;
+	z-index: 2;
+	padding-top: 3vh;
+	border-radius: 0px;
+	background-image: url('assets/img/c2.jpg');
+}
+
+.header2 {
+	background-color: rgb(80,127,102);
+	width: 100%;
+	height: 60px;
+	border-color: #A1FFCC;
+	border-radius: 0px;
+}
+
+.footer {
+	background-color: #284033; 
+	min-height: 30px !important;
+	width: 100%;
+	z-index: 1000;
+	color: #91E5B7;
+	border: 0px;
+	font-size: 0.6em;
+}
+
+.thumbs-div {
+	margin-top: 2vh;
+}
+
+.desc-wrapper {
+	height: 120px;
+	width: auto;
+	position: absolute;
+	
+	border-radius: 5px;
+	padding: 20px;
+	z-index: 100;
+	filter: drop-shadow(1px 1px 10px black);
+	-webkit-filter: drop-shadow(1px 1px 10px black);
+	-moz-filter: drop-shadow(1px 1px 10px black);
+}
+
+.desc {
+	top:20vh;
+	position: relative;
+	color: #fff;
+	font-size: 2.5em;
+	font-weight: bold;
+}
+
+.start-btn {
+
+	margin-top: 40vh;
+	height: 50px;
+	width: 250px;
+	border-radius: 25px;
+	background-color: #284033;
+	color: #fff;
+	z-index: 100;
+	font-size: 1.2em;
+	font-weight: bold;
+
+	filter: drop-shadow(2px 2px 5px black);
+	-webkit-filter: drop-shadow(2px 2px 5px black);
+	-moz-filter: drop-shadow(2px 2px 5px black);
+}
+
+
+.start-btn:hover {
+	border-width: 2px;
+	border-color: #91E5B7;
+	background-color: #284033;
+	color: #fff;
+}
+
+.nav-btn{
+	margin-top: 10px;
+	background-color: transparent;
+	color: #fff ;
+	height: 35px;
+	width: 90px;
+	border-radius: 15px;
+	border-width: 1px;
+	border-color: #fff;
+		filter: drop-shadow(-1px 1px 5px black);
+	-webkit-filter: drop-shadow(-1px 1px 5px black);
+	-moz-filter: drop-shadow(-1px 1px 5px black);
+}
+.nav-btn:hover, .nav-btn:focus {
+	border-width: 2px;
+	border-color: white;
+	background-color: rgba(80,127,102, .5);
+}
+
+.logo {
+	height: 40px;
+	margin-top: -5px;
+}
+
+.logo2 {
+	height: 40px;
+	margin-top: -35px;
+	margin-left: 40px;
+	color: white;
+	font-weight: bold;
+}
+
+
+.bg-img {
+  position: absolute;
+  background-size: 100%;
+  background-position-x: 0;
+  background-position-y: 0;
+  background-repeat:no-repeat;
+  background-size: cover;
+  display: block;
+  width: auto;
+  height: 120vh;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+
+
+/* GLOBAL STYLES */
+/* Padding below the footer and lighter body text */
+
+    body {
+      padding-bottom: 40px;
+      color: #5a5a5a;
+    }
+
+
+
+    /* CUSTOMIZE THE NAVBAR
+    -------------------------------------------------- */
+
+    /* Special class on .container surrounding .navbar, used for positioning it into place. */
+    .navbar-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      margin-top: 0px;
+      margin-bottom: -40px; /* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
+    }
+    .navbar-wrapper .navbar {
+
+    }
+
+    /* Remove border and change up box shadow for more contrast */
+    .navbar .navbar-inner {
+      border: 0;
+      -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+         -moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+              box-shadow: 0 2px 10px rgba(0,0,0,.25);
+    }
+
+    /* Downsize the brand/project name a bit */
+    .navbar .brand {
+      padding: 14px 20px 16px; /* Increase vertical padding to match navbar links */
+      font-size: 16px;
+      font-weight: bold;
+      text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+    }
+
+    /* Navbar links: increase padding for taller navbar */
+    .navbar .nav > li > a {
+      padding: 15px 20px;
+    }
+
+    /* Offset the responsive button for proper vertical alignment */
+    .navbar .btn-navbar {
+      margin-top: 10px;
+    }
+
+
+
+    /* CUSTOMIZE THE CAROUSEL
+    -------------------------------------------------- */
+
+    /* Carousel base class */
+    .carousel {
+      margin-bottom: 0px;
+    }
+
+    .carousel .container {
+      position: fixed;
+      z-index: 9;
+    }
+
+    .carousel-control {
+      height: 10vh;
+      margin-top: 20vh;
+      font-size: 2vh;
+      text-shadow: 0 1px 1px rgba(0,0,0,.1);
+      background-color: transparent;
+      border: 0;
+      z-index: 10;
+    }
+
+    .carousel .item {
+      height: 85vh;
+    }
+    .carousel img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-height: 100vh;
+      min-width: auto;
+    }
+
+    .carousel-caption {
+      background-color: transparent;
+      position: static;
+      max-width: 550px;
+      padding: 0 20px;
+      margin-top: 200px;
+    }
+    .carousel-caption h1,
+    .carousel-caption .lead {
+      margin: 0;
+      line-height: 1.25;
+      color: #fff;
+      text-shadow: 0 1px 1px rgba(0,0,0,.4);
+    }
+    .carousel-caption .btn {
+      margin-top: 10px;
+    }
+
+
+
+  
+
+
+    /* RESPONSIVE CSS
+    -------------------------------------------------- */
+
+    @media (max-width: 979px) {
+
+      .container.navbar-wrapper {
+        margin-bottom: 0;
+        width: auto;
+      }
+      .navbar-inner {
+        border-radius: 0;
+        margin: -20px 0;
+      }
+
+      .carousel .item {
+        height: 500px;
+      }
+      .carousel img {
+        width: auto;
+        height: 500px;
+      }
+
+      .featurette {
+        height: auto;
+        padding: 0;
+      }
+      .featurette-image.pull-left,
+      .featurette-image.pull-right {
+        display: block;
+        float: none;
+        max-width: 40%;
+        margin: 0 auto 20px;
+      }
+    }
+
+
+    @media (max-width: 767px) {
+
+      .navbar-inner {
+        margin: -20px;
+      }
+
+      .carousel {
+        margin-left: -20px;
+        margin-right: -20px;
+      }
+      .carousel .container {
+
+      }
+      .carousel .item {
+        height: 300px;
+      }
+      .carousel img {
+        height: 300px;
+      }
+      .carousel-caption {
+        width: 65%;
+        padding: 0 70px;
+        margin-top: 100px;
+      }
+      .carousel-caption h1 {
+        font-size: 30px;
+      }
+      .carousel-caption .lead,
+      .carousel-caption .btn {
+        font-size: 18px;
+      }
+
+      .marketing .span4 + .span4 {
+        margin-top: 40px;
+      }
+
+      .featurette-heading {
+        font-size: 30px;
+      }
+      .featurette .lead {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+    }
+
+
