@@ -14,9 +14,11 @@ class CreateEventsTable extends Migration {
 	{
 		Schema::create('events', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->increments('id')->index();
 			$table->integer('user_id')->unsigned();
 			$table->foreign('user_id')->references('id')->on('users');
+			$table->string('slug', 64);
+			$table->string('url', 64)->nullable();
 			$table->timestamps();
 		});
 	}

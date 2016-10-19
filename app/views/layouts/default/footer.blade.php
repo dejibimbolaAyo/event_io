@@ -8,24 +8,37 @@
 				<h4 class="modal-title">Sign Up</h4>
 			</div>
 			<div class="modal-body">
-				<form>
+				<form enctype="multipart/form-data" action="{{URL::route('storeSignup')}}" method="post">
 					<div class="form-group">
-						<label for="email">First Name </label>
-						<input type="text" class="form-control" placeholder="Enter First Name">
+						<label for="first_name">First Name </label>
+						<input type="text" name="first_name" class="form-control" placeholder="Enter First Name">
 					</div>
 					<div class="form-group">
-						<label for="email">Last Name </label>
-						<input type="text" class="form-control" placeholder="Enter Last Name">
-					</div>
-					<div class="form-group">
-						<label for="email">Phone Number </label>
-						<input type="text" class="form-control" placeholder="Enter Phone Number">
+						<label for="last_name">Last Name </label>
+						<input type="text" name="last_name" class="form-control" placeholder="Enter Last Name">
 					</div>
 					
 					<div class="form-group">
-						<label for="email">Email </label>
-						<input type="email" class="form-control" placeholder="Enter Email">
+						<label for="username">Username: </label>
+						<input type="text" name="username" class="form-control" placeholder="Enter a username">
 					</div>
+					<div class="form-group">
+						<label for="email">Email </label>
+						<input type="email" name="email" class="form-control" placeholder="Enter Email">
+					</div>
+					<div class="form-group">
+						<label for="phone_no">Phone Number </label>
+						<input type="text" name="phone_no" class="form-control" placeholder="Enter Phone Number">
+					</div>
+					<div class="form-group">
+						<label for="password">Password </label>
+						<input type="password" name="password" class="form-control" placeholder="Choose a Password">
+					</div>
+					<div class="form-group">
+						<label for="password">Confirm Password </label>
+						<input type="password" name="password_confirmation" class="form-control" placeholder="Confirm your Password">
+					</div>
+
 					<div class="form-group">
 						<button type="submit" class="btn btn-success">Sign Up</button>
 					</div>
@@ -44,15 +57,15 @@
 				<h4 class="modal-title">Login</h4>
 			</div>
 			<div class="modal-body">
-				<form>
+				<form enctype="multipart/form-data" method="post" action="{{URL::route('login')}}">
 					
 					<div class="form-group">
 						<label for="email">Email </label>
-						<input type="email" class="form-control" placeholder="Enter Email">
+						<input type="email" name="email" class="form-control" placeholder="Enter Email">
 					</div>
 					<div class="form-group">
 						<label for="email">Password </label>
-						<input type="password" class="form-control" placeholder="Enter Password">
+						<input type="password" name="password" class="form-control" placeholder="Enter Password">
 					</div>
 					<div class="form-group">
 						<button type="submit" class="btn btn-success">Login</button>
@@ -66,10 +79,11 @@
 <div class="navbar navbar-default navbar-fixed-bottom footer">
 	<center style="padding-top:10px">&copy &nbsp ROBOTIC LLC. </center>
 </div>
-<script type="text/javascript" src="../assets/js/jquery.js"></script>
-<script type="text/javascript" src="../assets/js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="../assets/js/jquery.datetimepicker.js"></script>
-<script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+{{HTML::script('assets/js/jquery.js')}}
+{{HTML::script('assets/js/jquery-ui.min.js')}}
+{{HTML::script('assets/js/jquery.datetimepicker.js')}}
+{{HTML::script('assets/js/bootstrap.min.js')}}
+
 <script>
 	$( "#datepicker" ).datepicker({inline: true,
 		format:'d/m/Y'});

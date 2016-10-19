@@ -5,16 +5,29 @@
 			<div class="container">
 				<div class="navbar-header">
 					<a class="navbar-brand">
-						<img src="../assets/img/logo.png" class="logo">
+						<img src="{{URL::asset('assets/img/logo.png')}}" class="logo">
 						<h3 class="logo2">vents.io</h3>
 					</a>
-				</div>
-				<div class="navbar-right hidden-xs">
-					<!-- <button class="btn btn-successs btn-lg navbar-btn start-btn">Create Events Now</button> -->
-					<button class="btn btn-success nav-btn" data-toggle="modal" data-target="#login">Login</button>
-					<button class="btn btn-success nav-btn" data-toggle="modal" data-target="#signUp">Sign Up</button>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+<!-- @if(Session::has('message'))
+<div class="row text-center">
+	<div class="col-xs-12 alert-container animated fadeIn" style="margin-top: 70px;">
+		<div class="alert alert-dismissible alert-success col-xs-12" role="alert" style="display:inline-block; border-radius: 30px;">
+			<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times</span><span class="sr-only">Close</span></button>
+			<div class="text-center">{{ Session::pull('message') }}</div>
+		</div>
+	</div>
+</div>
+@endif
+ -->
+<!-- @if ($errors->has())
+        <div class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+                {{ $error }}<br>        
+            @endforeach
+        </div>
+        @endif -->

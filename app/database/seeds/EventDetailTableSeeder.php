@@ -14,10 +14,10 @@ class EventDetailTableSeeder extends Seeder {
 			EventDetail::create([
 				'event_id' => $index,
 				'event_name' => $faker->sentence($nbWords = 2, $variableNbWords = true),
-				'event_type' => $faker->word,
+				'event_type_id' => mt_rand(1,6),
 				'event_date' => $faker->date($format = 'd-m-Y', $min = 'now'),
-				'event_time' => $faker->time($format = 'H:i:s', $min = 'now'),
-				'event_organizer' => $faker->name,
+				'event_time_from' => $faker->time($format = 'H:i:s', $min = 'now'),
+				'event_time_to' => $faker->time($format = 'H:i:s', $min = 'now + 4hours'),
 				'event_email' => $faker->email,
 				'event_phone' => $faker->phoneNumber,
 				'event_location' => $faker->address,

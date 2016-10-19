@@ -7,8 +7,15 @@ class UserTableSeeder extends Seeder {
 
 	public function run()
 	{
+		User::create(['role_id' => '2',
+				 'first_name' => 'Guest',
+				 'last_name' => 'Guest Last Name',
+				 'username' => 'guest_username',
+				 'phone_no' => '000000000',
+				 'email' => 'guest@event.io',
+				 'password' => Hash::make('guestpassword')]);
 		$faker = Faker::create();
-		foreach(range(1, 10) as $index)
+		foreach(range(2, 10) as $index)
 		{
 			User::create([
 				 'role_id' => '2',
