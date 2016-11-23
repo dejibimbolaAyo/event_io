@@ -10,7 +10,6 @@ class DatabaseSeeder extends Seeder {
 	public function run()
 	{
 
-		Eloquent::unguard();
 		$this->call('RoleTableSeeder');
 		$this->call('UserTableSeeder');
 		$this->call('EventTemplateTableSeeder');
@@ -21,6 +20,7 @@ class DatabaseSeeder extends Seeder {
 		$this->call('EventSpeakerTableSeeder');
 		$this->call('EventImgTableSeeder');
 		$this->call('EventAttendeeTableSeeder');
+		Eloquent::unguard();
 
 		// $this->call('UserTableSeeder');
 	}

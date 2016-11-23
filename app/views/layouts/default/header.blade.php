@@ -1,5 +1,5 @@
 <!-- other pages header aside the homepage -->
-<div class="container-fluid">
+<div class="container-fluid" id="header2">
 	<div class="navbar-wrapper">
 		<div class="navbar navbar-inverse navbar-fixed header2">
 			<div class="container">

@@ -1,10 +1,9 @@
-<div class="navbar navbar-default navbar-fixed-bottom footer">
+<div class="navbar navbar-default navbar-fixed-bottom footer" style="background-color: #284033">
 	<center style="padding-top:10px">&copy &nbsp ROBOTIC LLC. </center>
 </div>
 
  <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
-  <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
 

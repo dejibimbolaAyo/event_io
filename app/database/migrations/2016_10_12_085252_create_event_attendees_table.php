@@ -19,8 +19,9 @@ class CreateEventAttendeesTable extends Migration {
 			$table->foreign('event_id')->references('id')->on('events');
 			$table->string('first_name', 30);
 			$table->string('last_name', 30);
-			$table->string('email', 40);
-			$table->string('phone_no', 14);
+			$table->string('email', 40)->unique();
+			$table->string('phone_no', 14)->unique();
+			$table->integer('seat_no')->unique()->nullable();
 			$table->timestamps();
 		});
 	}

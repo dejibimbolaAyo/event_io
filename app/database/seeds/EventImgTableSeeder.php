@@ -1,4 +1,5 @@
 <?php
+use App\Models\EventImg;
 class EventImgTableSeeder extends Seeder {
 
 	public function run()
@@ -9,7 +10,7 @@ class EventImgTableSeeder extends Seeder {
 			EventImg::create([
 				'event_id' => $index,
 				'event_logo_url' => 'http://lorempixel.com/160/160/abstract',
-				'event_logo_url' => 'http://lorempixel.com/1900/650/people'
+				'event_banner_url' => 'http://lorempixel.com/1900/650/people'
 			]);
 		}
 	}

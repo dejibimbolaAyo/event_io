@@ -1,5 +1,7 @@
 <?php
 
+use Rap2hpoutre\LaravelLogViewer;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -10,6 +12,8 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
 Route::get('/', ['uses'=>'HomeController@index', 'as'=>'home']);
 
@@ -32,8 +36,23 @@ Route::post('/create/event/images', ['as'=>'storeEventImage', 'uses'=>'EventCont
 
 Route::get('/create/event/template', ['as'=>'chooseTemplate', 'uses'=>'HomeController@chooseTemplate']);
 
-Route::get('/template/{template_id}', ['as'=>'getTemplate', 'uses'=>'HomeController@getTemplate']);
+Route::get('/template/preview/{template_id}', ['as'=>'previewTemplate', 'uses'=>'EventController@previewTemplate']);
 
-Route::get('/adamant/user', ['as'=>'adamantUser', 'uses'=>'HomeController@adamantUserPage']);
+Route::get('/template/choose/{template_id}', ['as'=>'chooseTemplate', 'uses'=>'EventController@chooseTemplate']);
 
-Route::get('/user/dashboard', ['as'=>'userDashboard', 'uses'=>'DashboardController@index']);
+Route::get('/adamant/user/log_in', ['as'=>'adamantUserLogin', 'uses'=>'HomeController@adamantUserLogIn']);
+
+Route::get('/adamant/user/sign_up', ['as'=>'adamantUserSignUp', 'uses'=>'HomeController@adamantUserSignUp']);
+
+Route::get('/{slug}', ['as'=>'eventPage', 'uses'=>'EventController@eventPage']);
+
+Route::post('/book/{event_id}', ['as'=>'bookEvent', 'uses'=>'EventController@bookEvent']);
+
+Route::group(['before' => 'auth'], function(){
+	Route::get('/user/dashboard', ['as'=>'userDashboard', 'uses'=>'DashboardController@index']);
+	Route::get('event/delete/{event_id}', ['uses'=>'deleteEvent', 'as'=>'EventController@deleteEvent']);
+	Route::get('dashboard/event/{slug}', ['uses'=>'eventDetailpage', 'as'=>'EventController@eventDetailpage']);
+	Route::post('/event/update_seat',  ['uses'=>'EventController@updateSeats', 'as'=> 'updateSeats']);
+	Route::post('/event/update_eventTemplate',  ['uses'=>'EventController@updateTemplate', 'as'=> 'updateTemplate']);
+	Route::post('/event/update_slug',  ['uses'=>'EventController@updateSlug', 'as'=> 'updateSlug']);
+});

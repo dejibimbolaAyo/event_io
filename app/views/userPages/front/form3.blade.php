@@ -34,12 +34,12 @@
 				<input type="text" style="display: none;" value="{{$slug}}" name="slug">
 				<div class="form-group">
 					<label for="Event Logo (Venue)">Event Logo</label>
-					<input type="file" class="form-control dropzone" name="event_logo_url" placeholder="Enter address for Event (Venue)">
+					<input type="file" class="form-control" name="event_logo" placeholder="Enter address for Event (Venue)">
 				</div>
 				<div class="form-inline">
 					<label for="Event Banner (Venue)">Event Banner</label>
 					<div class="form-group" style="width:100%">
-						<input type="file" name="event_banner_url" class="form-control dropzone" style="width:70%">
+						<input type="file" name="event_banner" class="form-control" style="width:70%">
 						<a href="" class="btn btn-info" style="width:29%">Get a Free Banner</a>
 					</div>
 				</div>

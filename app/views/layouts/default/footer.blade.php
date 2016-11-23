@@ -38,7 +38,6 @@
 						<label for="password">Confirm Password </label>
 						<input type="password" name="password_confirmation" class="form-control" placeholder="Confirm your Password">
 					</div>
-
 					<div class="form-group">
 						<button type="submit" class="btn btn-success">Sign Up</button>
 					</div>
@@ -83,12 +82,66 @@
 {{HTML::script('assets/js/jquery-ui.min.js')}}
 {{HTML::script('assets/js/jquery.datetimepicker.js')}}
 {{HTML::script('assets/js/bootstrap.min.js')}}
+{{HTML::script('assets/js/flipclock/flipclock.min.js')}}
+@if(isset($event_details))
+<script type="text/javascript">
+var clock;
 
+			$(document).ready(function() {
+
+				// Instantiate a counter
+				clock = new FlipClock($('.seat'), {{$event_details->event_seats}}, {
+					clockFace: 'Counter'
+				});
+
+				// Attach a click event to a button a increment the clock
+				$('.increment').click(function() {
+					//clock.setValue(10);
+
+					// Or you could decrease the clock
+					// clock.decrement();
+
+					clock.increment();
+
+					// Or set it to a specific value
+					// clock.setValue(x);
+				});
+
+				// Attach a click event to a button a decrement the clock
+				$('.decrement').click(function() {
+					clock.decrement();
+				});
+
+				$('.reset').click(function() {
+					clock.reset();
+				});
+
+			});
+		</script>
+<script type="text/javascript">
+		var clock;
+		
+		$(document).ready(function() {
+			var clock;
+			clock = $('.countdown').FlipClock({
+		clockFace: 'DailyCounter',
+		autoStart: false,
+		callbacks: {
+			stop: function() {
+				$('.message').html('The clock has stopped!')
+			}
+		}
+		});
+				
+		clock.setTime({{$event_countdown}});
+		clock.setCountdown(true);
+		clock.start();
+		});
+</script>
+@endif
 <script>
 	$( "#datepicker" ).datepicker({inline: true,
 		format:'d/m/Y'});
-
-
 	$('#datetimepicker1').datetimepicker({
 	datepicker:false,
 	format:'H:i',

@@ -1,48 +1,69 @@
 @extends ('layouts.default.main')
 @section('title', 'Event Form | Event Template')
 @section('content')
-<div class="container" style="margin-top: 80px;">
-	<div class="row">
-		<div class="hidden-xs col-sm-2 col-md-3"></div>
-		<div class="col-xs-12 col-sm-8 col-md-6">
-			{{-- this is the template holder --}}
-			@foreach($templates as $template)
-			<div class="col-xs-12 col-sm-6 col-md-4">
-				<div class="thumbnail" data-target="#showTemplate" data-toggle="modal" value="{{$template->id}}" onclick="loadTemplate(this.value)">
-					<img src="{{$template->template_url}}" class="img-responsive block">
-					<div class="caption">
-						{{$template->template_name}}
-					</div>
-				</div>
-			</div>
-			@endforeach
-		</div>
-		<div class="hidden-xs col-sm-2 col-md-3"></div>
-	</div>
+<div class="container" style="margin-top: 80px; padding-bottom: 20px">
+	<button class="btn btn-success pull-right" data-target="#showTemplate" data-toggle="modal">Change Template</button>
+	@if(isset($template_id))
+	<a href="{{url('template/choose')}}/{{$template_id}}"><button class="btn btn-success pull-left">Choose Template</button></a>
+	@else
+	<a href="{{url('template/choose/')}}/1"><button class="btn btn-success pull-left">Choose Template</button></a>
+	@endif
+
 </div>
-{{-- find a means of getting value from each templates, use this.Value to return an id, so the id would = {{template->id}} this takes the template id from the template table --}}
+<div class="row">
+	<div class="hidden-xs col-sm-1 col-md-1"></div>
+	<div class="col-xs-12 col-sm-10 col-md-10 template-holder">
+		{{-- this portion contains the default template, the change button allows the user to pick another template --}}
+		{{-- this will be made dynamic i.e it will bw loaded from storage()database, but for now letfs make the default static--}}
+		{{-- template starts --}}
+		@if(isset($event_template->template_url))
+
+		@include('eventPages.templates.'.$event_template->template_url)
+		@else
+		@include('eventPages.templates.default')
+		@endif
+
+		{{-- template Ends --}}
+	</div>
+	<div class="hidden-xs col-sm-1 col-md-1"></div>
+</div>
 <div id="showTemplate" role="dialog" class="modal fade">
-	<div class="modal-dialog">
+	<div class="modal-dialog2">
 		<div class="modal-content">
-			<div class="modal-header">
-				<div class="pull-right">
-					<a href=""><button class="btn btn-success">Choose Template</button></a>
-				</div>
+			<div class="modal-header" style="background-color: #00A65A;">
 				<div class="modal-title">
-					<h4>Choose {{$template->template_name}} Template</h4>
+					<h4 style="color: white">Choose Template</h4>
 				</div>
 			</div>
 			<div class="modal-body">
-				{{-- here a query of the database is done to fetch location of the template in assets, or clicking on the thumbnail should load the template into a modal view??? --}}
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12">
+						@foreach($templates as $template)
+						<div class="col-xs-3 col-sm-3 col-md-2">
+							<a href="{{url('template/preview')}}/{{$template->id}}">
+								<div class="thumbnail">
+								<img src="{{$template->template_url}}" class="img-responsive block">
+								<div class="caption">
+									{{$template->template_name}}
+								</div>
+							</div>
+							</a>
+						</div>
+						@endforeach
+					</div>
+				</div>
+				<div class="alert alert-info">
+					<h5 class="text-center">Choose a Template For your Event</h5>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
-<script>
+{{-- <script>
 var baseUrl = "{{url('/')}}";
 function loadTemplate(template_id){
 	var template_detail = $.get(baseUrl + '/template/' + template_id);
 	console.log(template_detail);
-}	
-</script>
+	}
+</script> --}}
 @stop

@@ -8,7 +8,11 @@
 		"way/generators": "~2.0",
 		"fzaninotto/faker": "^1.6",
 		"guzzlehttp/guzzle": "~4",
-		"rap2hpoutre/laravel-log-viewer": "dev-master"
+		"rap2hpoutre/laravel-log-viewer": "dev-master",
+		"uxweb/sweet-alert": "dev-L42",
+		"nicolaslopezj/searchable": "1.*",
+		"phpunit/phpunit": "^5.1",
+        "intervention/image": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

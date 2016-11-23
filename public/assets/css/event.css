@@ -1,5 +1,5 @@
 .header1 {
-	background-color: rgba(80,127,102, .8); 
+	background-color: rgba(40,64,51, .9); 
 	height: 100vh;
 	width: 100%;
 	z-index: 2;
@@ -9,7 +9,7 @@
 }
 
 .header2 {
-	background-color: rgb(80,127,102);
+	background-color: #284033;
 	width: 100%;
 	height: 60px;
 	border-color: #A1FFCC;
@@ -72,7 +72,17 @@
 	border-width: 2px;
 	border-color: #91E5B7;
 	background-color: #00A65A;
-	color: #fff;
+  outline-color: transparent;
+  color: #fff;
+}
+
+.start-btn:active {
+  outline-color:  transparent !important;
+}
+
+.start-btn:focus {
+  outline-color: transparent;
+  text-decoration:  none !important;
 }
 
 .nav-btn{
@@ -84,15 +94,21 @@
 	min-width: 90px;
 	border-radius: 15px;
 	border-width: 1px;
-	border-color: #fff;
-		filter: drop-shadow(-1px 1px 5px black);
-	-webkit-filter: drop-shadow(-1px 1px 5px black);
-	-moz-filter: drop-shadow(-1px 1px 5px black);
+  outline: 0px;
+  border-color: #fff;
+    filter: drop-shadow(-1px 1px 5px black);
+  -webkit-filter: drop-shadow(-1px 1px 5px black);
+  -moz-filter: drop-shadow(-1px 1px 5px black);
 }
 .nav-btn:hover, .nav-btn:focus {
+  outline: 0px;
 	border-width: 2px;
 	border-color: white;
 	background-color: rgba(80,127,102, .5);
+}
+
+.nav-btn:active {
+  outline-color:  transparent !important;
 }
 
 .warn-btn{
@@ -116,7 +132,8 @@
 }
 
 .logo {
-	height: 40px;
+	height: 30px;
+  width: auto;
 	margin-top: -5px;
 }
 
@@ -130,7 +147,6 @@
   -webkit-filter: drop-shadow(0px 0.1px 2px black);
   -moz-filter: drop-shadow(0px 0.1px 2px black);
 }
-
 
 .bg-img {
   position: absolute;
@@ -159,12 +175,31 @@
 }
 
 .alert {
-  background-color: rgba(121,191,153, .4);
+  background-color: rgba(0,166,90, .5);
   color: #fff;
 }
 
+.login-container-panel {
+  position: relative;
+  margin-top: 5vh;
+  height: 45vh;
+  max-height: 400px;
+  width: 90%
+  min-width: 340px;
+  background-color: rgba(0,166,90, .5);
+}
+
+.template-holder {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: transparent;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+}
+
 @media (min-width: 768px) {
-  .modal-dialog {
+  .modal-dialog2 {
     width: 90%;
     margin: 30px auto;
   }
@@ -258,14 +293,15 @@
     }
 
     .carousel .item {
-      height: 85vh;
+      height: 45vh;
+      padding-bottom: 20px;
     }
     .carousel img {
-      position: absolute;
+      position: relative;
       top: 0;
       left: 0;
-      min-height: 100vh;
-      min-width: auto;
+      min-height: auto;
+      min-width: 100%;
     }
 
     .carousel-caption {

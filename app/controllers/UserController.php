@@ -1,4 +1,12 @@
 <?php
+use App\Models\User;
+use App\Models\Even_t;
+use App\Models\EventAttendee;
+use App\Models\EventDetail;
+use App\Models\EventHost;
+use App\Models\EventImg;
+use App\Models\EventType;
+
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 class UserController extends BaseController {
@@ -242,4 +250,5 @@ class UserController extends BaseController {
 			$this->loginFailer();
 		}
 	}
+
 }

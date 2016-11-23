@@ -13,7 +13,8 @@ class CreateEventTemplatesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('template_name', 15);
-			$table->string('template_url', 100)->default('assets/img/templates/default.jpg')->nullable();
+			$table->string('template_url', 100);
+			$table->string('template_image', 100)->default('assets/img/templates/default.jpg')->nullable();
 			$table->timestamps();
 		});
 	}

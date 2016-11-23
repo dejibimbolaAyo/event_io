@@ -36,12 +36,12 @@
 </header>
 {{-- the side bar --}}
 <!-- Left side column. contains the logo and sidebar -->
-<aside class="main-sidebar">
+<aside class="main-sidebar" style="background-color: #284033; height: 200vh;">
 <!-- sidebar: style can be found in sidebar.less -->
 <section class="sidebar">
   <!-- Sidebar user panel -->
   <!-- search form -->
-    <img src="{{URL::asset('assets/img/logo.png')}}" class="logo" style="position: relative; top: 30px;>
+    <img src="{{URL::asset('assets/img/logo.png')}}" class="logo" style="position: relative; top: -30px;right: -5px">
   <form action="#" method="get" class="sidebar-form">
     <div class="input-group">
       <input type="text" name="q" class="form-control" placeholder="Search...">
@@ -62,14 +62,14 @@
       </a>
     </li>
     <li>
-      <a href="pages/widgets.html">
+      <a href="{{URL::route('eventDetailsDashboard')}}">
         <i class="fa fa-th"></i> <span>Events</span>
         <span class="pull-right-container">
         </span>
       </a>
     </li>
     <li>
-      <a href="pages/widgets.html">
+      <a href="{{URL::route('eventDetails')}}">
         <i class="fa fa-th"></i> <span>Create Event</span>
         <span class="pull-right-container">
           <small class="label pull-right bg-green">new</small>

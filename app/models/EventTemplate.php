@@ -1,11 +1,12 @@
 <?php
+namespace App\Models;
 
 use Illuminate\Auth\UserTrait;
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class EventTemplate extends Eloquent {
+class EventTemplate extends BaseModel {
 
 	use UserTrait, RemindableTrait;
 
@@ -23,6 +24,11 @@ class EventTemplate extends Eloquent {
 	 */
 	protected $hidden = array();
 
-	protected $fillable = ['template_name', 'template_url'];
+	protected $fillable = ['template_name', 'template_url', 'template_image'];
+
+	public function even_t()
+	{
+		return $this->belongsTo('\App\Models\Even_t');
+	}
 
 }

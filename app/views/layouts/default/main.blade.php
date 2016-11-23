@@ -6,7 +6,9 @@
 	</head>
 	<body>
 		@include('layouts.default.header')
+		<div style="margin-bottom: 40px" ">
 		@yield('content')
+		</div>
 		@include('layouts.default.footer')
 	</body>
 </html>

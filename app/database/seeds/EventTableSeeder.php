@@ -1,5 +1,5 @@
 <?php
-
+use App\Models\Even_t;
 class EventTableSeeder extends Seeder {
 
 	public function run()

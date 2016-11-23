@@ -48,18 +48,18 @@
 						</select>
 						@if ($errors->has('event_type_id')) <p class="help-block">{{ $errors->first('event_type_id') }}</p> @endif
 					</div>
-					<div class="form-group @if ($errors->has('event_date')) has-error @endif">
+					{{-- <div class="form-group @if ($errors->has('event_date')) has-error @endif">
 						<label for="event date">Event Date </label>
 						<input name="event_date" type="date" class="form-control" id="datepicker" placeholder="Enter Event Date">
 						@if ($errors->has('event_date')) <p class="help-block">{{ $errors->first('event_date') }}</p> @endif
-					</div>
+					</div> --}}
 					<div class="form-inline">
 						<label for="event time">Event Time </label>
 						<div class="form-group block" style="width:100%">
-							<input name="event_time_from"  id="datetimepicker1" type="text" class="form-control @if ($errors->has('event_time_from')) has-error @endif" placeholder="From" style="width:48%">
+							<input name="event_time_from"  id="datetimepicker1" type="datetime-local" class="form-control @if ($errors->has('event_time_from')) has-error @endif" placeholder="Event starts When?" style="width:48%">
 							@if ($errors->has('event_time_from')) <p class="help-block">{{ $errors->first('event_time_from') }}</p> @endif
 							
-							<input name="event_time_to" id="datetimepicker2" type="text" class="form-control @if ($errors->has('event_time_to')) has-error @endif" placeholder="To (if applicable)" style="width:50%">
+							<input name="event_time_to" id="datetimepicker2" type="datetime-local" class="form-control @if ($errors->has('event_time_to')) has-error @endif" placeholder="Event ends When? (if applicable)" style="width:50%">
 							@if ($errors->has('event_time_to')) <p class="help-block">{{ $errors->first('event_time_to') }}</p> @endif
 						</div>
 					</div>

@@ -20,9 +20,8 @@ class CreateEventDetailsTable extends Migration {
 			$table->string('event_name', 50);
 			$table->integer('event_type_id')->unsigned();
 			$table->foreign('event_type_id')->references('id')->on('event_types');
-			$table->date('event_date');
-			$table->time('event_time_from');
-			$table->time('event_time_to');
+			$table->string('event_time_from');
+			$table->string('event_time_to');
 			$table->string('event_location', 70);
 			$table->string('event_email', 50)->nullable();
 			$table->string('event_phone', 14);

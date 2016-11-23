@@ -1,5 +1,5 @@
 <?php
-
+use App\Models\Role;
 
 class RoleTableSeeder extends Seeder {
 

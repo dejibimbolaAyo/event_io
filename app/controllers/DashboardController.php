@@ -1,4 +1,10 @@
 <?php
+use App\Models\Even_t;
+use App\Models\EventAttendee;
+use App\Models\EventDetail;
+use App\Models\EventHost;
+use App\Models\EventImg;
+use App\Models\EventType;
 
 class DashboardController extends \BaseController {
 
