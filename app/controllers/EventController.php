@@ -1,7 +1,9 @@
 <?php
 use App\Models\Even_t;
+use App\Models\User;
 use App\Models\EventAttendee;
 use App\Models\EventDetail;
+use App\Models\EventSpeaker;
 use App\Models\EventHost;
 use App\Models\EventImg;
 use App\Models\EventType;
@@ -24,7 +26,6 @@ class EventController extends \BaseController {
 				'event_location' => 'required|min:10',
 				'event_description' => 'required|min:10',
 			]);
-
 		if ($validator->passes())
 		{
 		// 	//create an event on the event table with a user id, to generate an event id, a slug as well
@@ -48,12 +49,20 @@ class EventController extends \BaseController {
 		}
 	}
 
+
+	/**
+	 * this funtion takes a slug runs it against the database by using the event_id to return the slug then if the slug matches 
+	 * what was sent from the route the event creation can then continue....tho this is completely not so necessary....
+	 */
+
 	public function storeEventHost()
 	{
-		//this funtion takes a slug runs it against the database by using the event_id to return the slug then if the slug matches what was sent from the route the event creation can then continue....tho this is completely not so necessary....i did it cos i can...so lets get to it''''''i change my mind....this function juat uses the slug to query the event database to ge an event id.....cool but not hot.....
 		$event_host  = new EventHost;
 		$data = Input::all();
-		$event_host->event_id = Even_t::where('slug', '=', $data['slug'])->first()->id;		
+		echo '<pre>';
+		dd($data);
+		echo '</pre>';
+		$event_host->event_id = Even_t::where('slug',$data['slug'])->first()->id;		
 		$event_host->fill($data);
 		$event_host->save();
 		$page_id = 3;
@@ -66,13 +75,9 @@ class EventController extends \BaseController {
 	public function storeEventImages()
 	{
 		//this function will save the images provided for the event into the required table 'event_img table'
-
-		/*
-		these are functions on file uploa:::::: getClientOriginalName, getClientOriginalExtension, getClientMimeType, guessClientExtension, getClientSize, getError, isValid, getMaxFilesize, getErrorMessage
-		*/
 		$event_img = new EventImg;
 		$data = Input::all();
-		$event_img->event_id = Even_t::where('slug', '=', $data['slug'])->first()->id;
+		$event_img->event_id = Even_t::where('slug',$data['slug'])->first()->id;
 		$image_logo = Input::file('event_logo');
 		$image_banner = Input::file('event_banner');
 		$logo_name = time() . "_" . $image_logo->getClientOriginalName();
@@ -99,24 +104,15 @@ class EventController extends \BaseController {
 	public function previewTemplate($template_id)
 	{
 		//with this the page uri of a  template is loaded into the preview page
-		$templates = new EventTemplate;
-		$event_detail = new EventDetail;
-		$event_host = new EventHost;
-		$event_img = new EventImg;
-		$templates = $templates->all();
+		$templates = EventTemplate::all();
 		$event_slug = Session::get('slug4');
-		$event = new Even_t;
-		$event_id = $event->where('slug', '=', $event_slug)->first()->id;
-		$event_details = $event_detail->where('event_id', '=', $event_id)->first();
-		$event_hosts = $event_host->where('event_id', '=', $event_id)->first();
-		$event_imgs = $event_img->where('event_id', '=', $event_id)->first();
+		$event = Even_t::where('slug',$event_slug)->first();
 		$event_template = $templates->find($template_id);
-		$event_countdown = strtotime($event_details->event_time_from);
-		// echo '<pre>';
-		// dd($event_template->template_url);
-		// echo '</pre>';
-
-		return View::make('userPages.front.choose_template')->with(['event_template'=> $event_template, 'event_countdown'=>$event_countdown, 'templates'=>$templates, 'template_id'=>$template_id, 'event_details'=> $event_details, 'event_hosts'=> $event_hosts, 'event_imgs'=> $event_imgs]);
+		// $event_countdown = strtotime($event->event_details->event_time_from);
+		echo '<pre>';
+		dd($event->eventDetail);
+		echo '</pre>';
+		return View::make('userPages.front.choose_template')->with(['event_template'=> $event_template, 'event_countdown'=>$event_countdown, 'templates'=>$templates, 'template_id'=>$template_id, 'event'=> $event]);
 		//it picks the template id to get the template url from database, the template url is now appended to the @include inside the choose template
 	}
 
@@ -214,6 +210,12 @@ class EventController extends \BaseController {
 
 	}
 
+	public function allEvent()
+	{	
+		$all_events = Even_t::orderBy('created_at', 'desc')->get();
+		return View::make('eventPages.even_ts')->with('all_events', $all_events);
+	}
+
 	public function eventDetailpage($slug)
 	{	
 		$even_t = new Even_t;
@@ -250,6 +252,8 @@ class EventController extends \BaseController {
 		return Redirect::back();
 
 	}
+
+
 
 
 	public function updateSlug($event_id)

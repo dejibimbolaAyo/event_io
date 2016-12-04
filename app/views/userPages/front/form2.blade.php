@@ -30,12 +30,23 @@
 				@endif
 			</div>
 			@if(isset($slug2)||isset($slug))
-			<form action="{{url('/create/event/host')}}" enctype="multipart/form-data" method="post">
+			<form action="{{url('/create/event/host')}}" enctype="multipart/form-data" method="post" id="">
 				<input type="text" style="display: none;" value="{{$slug}}" name="slug">
 				<div class="form-group">
 					<label for="Event host">Event Host </label>
-					<input name="host_name" type="text" class="form-control" placeholder="Host">
+					<input name="host_name[]" type="text" class="form-control" placeholder="Host">
 				</div>
+				<div id="form-container"></div>
+				<br>
+				<br>
+
+				<div class="pull-right" id="add_more">
+					<a href="#add_more" class="btn btn-success" onclick="addMore()">Add More <i class="glyphicon glyphicon-plus"></i></a>
+				</div>
+				<br>
+				<br>
+				<br>
+				<br>
 				{{-- <div class="form-group">
 					<label for="Event host">Event Host 2 </label>
 					<input name="host_name[]" type="text" class="form-control" placeholder="Host 2 (if applcable)">
@@ -55,4 +66,13 @@
 		<div class="hidden-xs hidden-sm col-md-3"></div>
 	</div>
 </div>
+<script type="text/javascript">
+	function addMore() {
+			
+		var container = document.getElementById('form-container');
+		var div = document.createElement('div');
+		div.innerHTML = '<div class="form-group"><label for="Event host">Event Host </label><input name="host_name[]" type="text" class="form-control" placeholder="Host"></div>';
+		container.appendChild(div);
+	}	
+	</script>
 @stop

@@ -28,7 +28,8 @@ class UserController extends BaseController {
 			$data['role_id'] = 2;
 			$user->fill($data);
 			$user->save();
-			return Redirect::to('/')->withMessage('Signed Up successfully, You may now Login');
+			Auth::login($user);
+			return Redirect::to('/')->withMessage('Registered Successfully, and Successfully Logged In');
 		}
 	}
 

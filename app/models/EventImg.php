@@ -6,8 +6,8 @@ class EventImg extends BaseModel {
 	
 	protected $fillable = ['event_id', 'event_logo_url', 'event_banner_url'];
 
-	public function even_t()
+	public function eventDetail()
 	{
-		return $this->belongsTo('\App\Models\Even_t');
+		return $this->belongsTo('\App\Models\EventDetail', 'event_id');
 	}
 }

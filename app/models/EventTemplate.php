@@ -26,9 +26,9 @@ class EventTemplate extends BaseModel {
 
 	protected $fillable = ['template_name', 'template_url', 'template_image'];
 
-	public function even_t()
+	public function eventDetail()
 	{
-		return $this->belongsTo('\App\Models\Even_t');
+		return $this->hasMany('\App\Models\EventDetail', 'event_template_id');
 	}
 
 }

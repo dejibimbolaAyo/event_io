@@ -34,7 +34,7 @@ class DashboardController extends \BaseController {
 	{
 		//this function displays all the event created by the user
 		$user_id = Session::get('user_id');
-		$event_all = Even_t::where('user_id', '=', $user_id);
+		$event_all = Even_t::find($user_id);
 		return Redirect::action('DashboardController@allEventsPage')->with('event_all', $event_all);
 	}
 

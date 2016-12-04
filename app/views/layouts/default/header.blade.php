@@ -13,7 +13,7 @@
 		</div>
 	</div>
 </div>
-<!-- @if(Session::has('message'))
+@if(Session::has('message'))
 <div class="row text-center">
 	<div class="col-xs-12 alert-container animated fadeIn" style="margin-top: 70px;">
 		<div class="alert alert-dismissible alert-success col-xs-12" role="alert" style="display:inline-block; border-radius: 30px;">
@@ -23,11 +23,10 @@
 	</div>
 </div>
 @endif
- -->
-<!-- @if ($errors->has())
-        <div class="alert alert-danger">
-            @foreach ($errors->all() as $error)
-                {{ $error }}<br>        
-            @endforeach
-        </div>
-        @endif -->
+@if ($errors->has())
+<div class="alert alert-danger">
+	@foreach ($errors->all() as $error)
+	{{ $error }}<br>
+	@endforeach
+</div>
+@endif

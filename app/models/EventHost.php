@@ -6,8 +6,5 @@ class EventHost extends BaseModel {
 
 	protected $fillable = ['event_id', 'host_name'];
 
-	public function even_t()
-	{
-		return $this->belongsTo('\App\Models\Even_t');
-	}
+
 }

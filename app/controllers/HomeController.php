@@ -104,10 +104,10 @@ class HomeController extends BaseController {
 	public function getTemplate($template_id)
 	{
 		//this function loads details about a template onto view
-	$templates = new EventTemplate;
-	$template_details = $templates->where('id', '=', $template_id)->first();
-	$event_slug = Session::get('slug4');
-	return $response;
+		$templates = new EventTemplate;
+		$template_details = $templates->where('id', '=', $template_id)->first();
+		$event_slug = Session::get('slug4');
+		return $response;
 	}
 
 	public function adamantUserLogIn()
@@ -120,5 +120,11 @@ class HomeController extends BaseController {
 	{
 		
 		return View::make('userPages.front.adamantSignUp')->with('event_details', $event_details);
+	}
+
+	public function eventPage($slug)
+	{
+		$event_details = Even_t::find($slug);
+		View::make('eventPages.templates.main')->with('event_details', $event_details);
 	}
 }

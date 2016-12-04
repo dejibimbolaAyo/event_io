@@ -82,6 +82,7 @@
 {{HTML::script('assets/js/jquery-ui.min.js')}}
 {{HTML::script('assets/js/jquery.datetimepicker.js')}}
 {{HTML::script('assets/js/bootstrap.min.js')}}
+{{HTML::script('assets/js/salvattore.js')}}
 {{HTML::script('assets/js/flipclock/flipclock.min.js')}}
 @if(isset($event_details))
 <script type="text/javascript">

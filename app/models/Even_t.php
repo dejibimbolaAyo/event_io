@@ -1,6 +1,7 @@
 <?php
 namespace App\Models;
 
+
 class Even_t extends BaseModel {
 
 	protected $table = 'events';
@@ -9,43 +10,38 @@ class Even_t extends BaseModel {
 
 	public function user()
 	{
-		return $this->belongsTo('\App\Models\User');
+		return $this->belongsTo('App\Models\User', 'user_id');
 	}
 
-	public function event_type()
+	public function eventDetail()
 	{
-		return $this->hasOne('\App\Models\EventType', 'event_id');
+		return $this->hasOne('App\Models\EventDetail', 'event_id');
 	}
 
-	public function event_detail()
-	{
-		return $this->hasOne('\App\Models\EventDetail', 'event_id');
-	}
-
-	public function event_host()
+	public function eventHosts()
 	{
 		return $this->hasMany('\App\Models\EventHost', 'event_id');
 	}
 
-	public function event_speaker()
+	public function eventSpeakers()
 	{
 		return $this->hasMany('\App\Models\EventSpeaker', 'event_id');
 	}
 
-	public function event_img()
+	public function eventImages()
 	{
-		return $this->hasOne('\App\Models\EventImg', 'event_id');
+		return $this->hasMany('\App\Models\EventImg', 'event_id');
 	}
 
-	public function event_attendee()
+	public function eventAttendees()
 	{
 		return $this->hasMany('\App\Models\EventAttendee', 'event_id');
 	}
 
-	public function event_template()
+	public function getFullEventDetailsAttribute()
 	{
-		return $this->hasOne('\App\Models\EventTemplate', 'event_id');
+		
+		$full_detail = array_merge([$this->eventDetail], [$this->eventHosts], [$this->eventSpeakers], [$this->eventImages]);
+		return $full_detail;
 	}
-
-
 }

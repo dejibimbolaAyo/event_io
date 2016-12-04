@@ -79,14 +79,14 @@
 					<div class="countdown_message" style="padding: 20px;">
 						<h2>Countdown to Event</h2>
 					</div>
-					<div style="width: 100%; height: auto" class="countdown" style="margin:1em;"></div>
+					{{-- <div style="width: 100%; height: auto" class="countdown" style="margin:1em;"></div> --}}
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					{{-- this portion hold the countdown seats available --}}
 					<div class="seat_message" style="padding: 20px;">
 						<h2>Seats available</h2>
 					</div>
-					<div class="seat" style="margin:1em;"></div>
+					{{-- <div class="seat" style="margin:1em;"></div> --}}
 				</div>
 			</div>
 		</div>
@@ -124,8 +124,8 @@
 		</div>
 		@else
 		<div class="row">
-			<div class="hidden-xs col-sm-3 col-md-3"></div>
-			<div class="col-xs-12 col-sm-6 col-md-6">
+			<div class="col-xs-1 col-sm-3 col-md-3"></div>
+			<div class="col-xs-10 col-sm-6 col-md-6">
 				{{-- this portion holds the rsvp --}}
 				<div class="" style="padding-top: 20px; padding-bottom: 20px; text-align: center">
 						<h2>Event Fully Booked</h2>
@@ -150,11 +150,13 @@
 						<input type="text=" name="phone_no" class="form-control">
 					</div>
 					<div class="form-group">
-						<button type="submit" class="btn btn-success pull-right">Book Event</button>
+						<button type="submit" class="btn btn-success pull-right form-control">Book Event</button>
 					</div>
+					<br>
+					<br>
 				</form>
 			</div>
-			<div class="hidden-xs col-sm-3col-md-3"></div>
+			<div class="col-xs-1 col-sm-3col-md-3"></div>
 		</div>
 		@endif
 		<div class="row">

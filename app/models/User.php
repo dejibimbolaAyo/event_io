@@ -45,14 +45,15 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
 
 	protected $fillable = ['role_id', 'first_name', 'last_name', 'username', 'phone_no', 'email', 'password', 'remember_token'];
 
-	public function even_t()
-	{
-		return $this->hasMany('\App\Models\Even_t', 'user_id');
-	}
 
 	public function role()
 	{
-		return $this->hasOne('\App\Models\Role');
+		return $this->belongsTo('\App\Models\Role', 'role_id');
+	}
+
+	public function events()
+	{
+		$this->hasMany('\App\Models\Even_t', 'user_id');
 	}
 
 	public function getFullNameAttribute()
